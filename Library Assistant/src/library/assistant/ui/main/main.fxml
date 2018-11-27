@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -20,7 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="844.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="library.assistant.ui.main.MainController">
+<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="844.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="library.assistant.ui.main.MainController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0">
          <top>
@@ -175,8 +176,14 @@
                                           <Insets bottom="5.0" left="20.0" right="20.0" />
                                        </VBox.margin>
                                     </HBox>
-                                    <HBox alignment="CENTER" prefHeight="108.0" prefWidth="685.0">
+                                    <HBox alignment="CENTER" prefHeight="108.0" prefWidth="685.0" snapToPixel="false">
                                        <children>
+                                          <Label fx:id="welcomeUser" text="Label" />
+                                          <HBox prefHeight="102.0" prefWidth="102.0">
+                                             <HBox.margin>
+                                                <Insets left="100.0" />
+                                             </HBox.margin>
+                                          </HBox>
                                           <JFXButton minHeight="60.0" minWidth="100.0" onAction="#loadIssueOperation" styleClass="setup-button" stylesheets="@main.css" text="Issue">
                                              <graphic>
                                                 <ImageView fitHeight="43.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
@@ -184,7 +191,9 @@
                                                       <Image url="@../icons/issueBook.png" />
                                                    </image>
                                                 </ImageView>
-                                             </graphic></JFXButton>
+                                             </graphic>
+                                          </JFXButton>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" />
                                        </children>
                                     </HBox>
                                  </children>

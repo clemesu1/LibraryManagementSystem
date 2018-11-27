@@ -92,7 +92,7 @@ public class MemberListController implements Initializable {
 
     @FXML
     private void handleMemberEdit(ActionEvent event) {
-         //Fetch the selected row
+        //Fetch the selected row
         MemberListController.Member selectedForEdit = tableView.getSelectionModel().getSelectedItem();
         if(selectedForEdit == null) {
             AlertMaker.showErrorMessage("No member selected", "Please select a member to edit.");

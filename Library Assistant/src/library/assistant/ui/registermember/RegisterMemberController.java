@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import library.assistant.database.DatabaseHandler;
+import library.assistant.ui.listaccount.AccountListController;
 
 public class RegisterMemberController implements Initializable {
 
@@ -36,7 +37,10 @@ public class RegisterMemberController implements Initializable {
     private JFXButton saveButton;
     @FXML
     private JFXButton cancelButton;
+    
+    private Boolean isInEditMode = Boolean.FALSE;
 
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         handler = DatabaseHandler.getInstance();
@@ -69,17 +73,7 @@ public class RegisterMemberController implements Initializable {
             st.setString(2, mUser);
             st.setString(3, mPass);
             exec = st.executeUpdate();
-            if(exec > 0) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setHeaderText(null);
-                alert.setContentText("Saved");
-                alert.showAndWait();
-            } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText(null);
-                alert.setContentText("Error Occured");
-                alert.showAndWait();
-            }
+           
         } catch (SQLException ex) {
             Logger.getLogger(RegisterMemberController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -91,10 +85,15 @@ public class RegisterMemberController implements Initializable {
             st.setString(4, mEmail);
             exec = st.executeUpdate();
             
-            if(exec > 0) {
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(RegisterMemberController.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+        if(exec > 0) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
-                alert.setContentText("Saved");
+                alert.setContentText("Account Created");
                 alert.showAndWait();
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -102,17 +101,19 @@ public class RegisterMemberController implements Initializable {
                 alert.setContentText("Error Occured");
                 alert.showAndWait();
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(RegisterMemberController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
     }
 
     @FXML
     private void cancel(ActionEvent event) {
         Stage stage = (Stage) name.getScene().getWindow();
         stage.close();
+    }
+
+    public void inflateUI(AccountListController.Account account) {
+        username.setText(account.getUser());
+        id.setText(account.getId());
+
+        isInEditMode = Boolean.TRUE;
     }
     
 }

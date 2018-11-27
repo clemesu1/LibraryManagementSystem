@@ -21,6 +21,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
@@ -60,6 +61,8 @@ public class MainController implements Initializable {
     Boolean isReadyForReturn = false;
     @FXML
     private StackPane rootPane;
+    @FXML
+    private Label welcomeUser;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -67,7 +70,8 @@ public class MainController implements Initializable {
         JFXDepthManager.setDepth(member_info, 1);
         
         databaseHandler = DatabaseHandler.getInstance();
-    }    
+        
+    }   
 
     @FXML
     private void loadAddMember(ActionEvent event) {
@@ -102,6 +106,7 @@ public class MainController implements Initializable {
             stage.setTitle(title);
             stage.setScene(new Scene(parent));
             stage.show();
+            
         } catch (IOException ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
