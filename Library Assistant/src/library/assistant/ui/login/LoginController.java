@@ -79,6 +79,19 @@ public class LoginController implements Initializable {
     private void closeStage() {
         ((Stage)username.getScene().getWindow()).close();
     }
+    void loadWindow(String loc, String title)
+    {
+        try {
+            Parent parent = FXMLLoader.load(getClass().getResource(loc));
+            Stage stage = new Stage(StageStyle.DECORATED);
+            stage.setTitle(title);
+            stage.setScene(new Scene(parent));
+            stage.show();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     @FXML
     private void loadRegisterMember(ActionEvent event) {
@@ -98,19 +111,6 @@ public class LoginController implements Initializable {
             stage.setScene(new Scene(parent));
             stage.show();
             LibraryAssistantUtil.setStageIcon(stage);
-        } catch (IOException ex) {
-            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    void loadWindow(String loc, String title)
-    {
-        try {
-            Parent parent = FXMLLoader.load(getClass().getResource(loc));
-            Stage stage = new Stage(StageStyle.DECORATED);
-            stage.setTitle(title);
-            stage.setScene(new Scene(parent));
-            stage.show();
         } catch (IOException ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -1,4 +1,4 @@
-package library.assistant.forgotpassword;
+package library.assistant.ui.forgotpassword;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;

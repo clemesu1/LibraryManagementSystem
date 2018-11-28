@@ -1,4 +1,4 @@
-package library.assistant.forgotpassword;
+package library.assistant.ui.forgotpassword;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
