@@ -12,7 +12,7 @@ public class ForgotPasswordLoader extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/forgot_password.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/library/assistant/ui/forgotpassword/forgot_password.fxml"));
         
         Scene scene = new Scene(root);
         

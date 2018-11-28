@@ -42,7 +42,6 @@ public class MemberAddController implements Initializable {
         handler = DatabaseHandler.getInstance();
     }    
 
-
     @FXML
     private void cancel(ActionEvent event) {
         Stage stage = (Stage) name.getScene().getWindow();

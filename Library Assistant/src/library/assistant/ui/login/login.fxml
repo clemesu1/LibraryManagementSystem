@@ -39,7 +39,7 @@
             <JFXButton onAction="#handleCancelButtonAction" prefHeight="200.0" prefWidth="200.0" text="Cancel" />
          </children>
       </HBox>
-      <Hyperlink layoutX="14.0" layoutY="193.0" onAction="#loadRegisterMember" text="Register Account" />
+      <Hyperlink layoutX="24.0" layoutY="193.0" onAction="#loadRegisterMember" text="Register Account" />
       <Hyperlink layoutX="206.0" layoutY="193.0" onAction="#loadForgotPassword" text="Forgot Password?" />
    </children>
 </AnchorPane>

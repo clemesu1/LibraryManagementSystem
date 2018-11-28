@@ -37,7 +37,6 @@ public class ForgotPasswordController implements Initializable {
     private void handleSubmitButton(ActionEvent event) {
         String uUser = username.getText();
         String uEmail = email.getText();
-        int exec = 0;
         Boolean flag = uUser.isEmpty() || uEmail.isEmpty();
 
         if(flag) {
@@ -47,28 +46,31 @@ public class ForgotPasswordController implements Initializable {
             alert.showAndWait();
             return;
         }
-        
-        String qu = "SELECT password FROM ACCOUNT WHERE username=?, MEMBER.email=?";
+        flag = false;
+        String qu = "SELECT password FROM ACCOUNT WHERE " + "'" + uUser +"'";
+        String pass = "";
         ResultSet rs = handler.execQuery(qu);
         try {
             while(rs.next()) {
-                String user = rs.getString("username");
-                String email = rs.getString("MEMBER.email");  
+                pass = rs.getString("password");  
+                
+                flag = true;
             }
-           
+            if(!flag) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(null);
+                alert.setContentText("No such user exists");
+                alert.showAndWait();            
+            }
+            else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText(null);
+                alert.setContentText("Your password is: " + pass);
+                alert.showAndWait();   
+            }
+            
         } catch (SQLException ex) {
             Logger.getLogger(ForgotPasswordController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if(exec > 0) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setHeaderText(null);
-            alert.setContentText("Account Created");
-            alert.showAndWait();
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setContentText("Error Occured");
-            alert.showAndWait();
         }
     }
 
