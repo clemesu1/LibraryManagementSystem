@@ -1,8 +1,8 @@
 ----------------------------------------------------------------
-Wed Nov 28 15:06:13 AST 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0167-5bb6-e98e-00000d382fc0 
+Wed Nov 28 15:13:49 AST 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0167-5bbd-dfa5-00000d383110 
 on database directory C:\Users\coliw\OneDrive\Documents\GitHub\LibraryManagementSystem\Library Assistant\database with class loader sun.misc.Launcher$AppClassLoader@55f96302 
-Loaded from file:/C:/Users/coliw/OneDrive/Documents/GitHub/LibraryManagementSystem/Library%20Assistant/dist/run1297276261/lib/derby.jar
+Loaded from file:/C:/Users/coliw/OneDrive/Documents/GitHub/LibraryManagementSystem/Library%20Assistant/dist/run1554345805/lib/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_191-b12
 user.dir=C:\Users\coliw\OneDrive\Documents\GitHub\LibraryManagementSystem\Library Assistant

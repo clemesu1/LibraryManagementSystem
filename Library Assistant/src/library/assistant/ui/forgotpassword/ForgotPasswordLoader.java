@@ -1,4 +1,3 @@
-
 package library.assistant.ui.forgotpassword;
 
 import javafx.application.Application;
@@ -25,5 +24,4 @@ public class ForgotPasswordLoader extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
 }
