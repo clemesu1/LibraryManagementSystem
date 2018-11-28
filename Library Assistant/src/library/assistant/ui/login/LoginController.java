@@ -30,10 +30,10 @@ public class LoginController implements Initializable {
     private JFXTextField username;
     @FXML
     private JFXPasswordField password;
-    
-    Preferences preference;
     @FXML
     private Label titleLabel;
+    
+    Preferences preference;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -44,7 +44,7 @@ public class LoginController implements Initializable {
     @FXML
     private void handleLoginButtonAction(ActionEvent event) throws SQLException {
         titleLabel.setText("Library Assistant Login");
-        titleLabel.setStyle("-fx-background-color:black;-fx-text-fill:white"); DatabaseHandler handler = DatabaseHandler.getInstance();
+        titleLabel.setStyle("-fx-background-color:black;-fx-text-fill:white");
         String st = "SELECT username, password FROM ACCOUNT";
         ResultSet rs = handler.execQuery(st);
         String user = username.getText();
@@ -70,15 +70,15 @@ public class LoginController implements Initializable {
     private void closeStage() {
         ((Stage)username.getScene().getWindow()).close();
     }
-    void loadWindow(String loc, String title)
-    {
+    
+    void loadWindow(String loc, String title) {
         try {
             Parent parent = FXMLLoader.load(getClass().getResource(loc));
             Stage stage = new Stage(StageStyle.DECORATED);
             stage.setTitle(title);
             stage.setScene(new Scene(parent));
             stage.show();
-            
+            LibraryAssistantUtil.setStageIcon(stage);
         } catch (IOException ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -93,8 +93,7 @@ public class LoginController implements Initializable {
     private void loadForgotPassword(ActionEvent event) {        
         loadWindow("/library/assistant/ui/forgotpassword/forgot_password.fxml", "Forgot Password");
     }
-    void loadMain()
-    {
+    void loadMain() {
         try {
             Parent parent = FXMLLoader.load(getClass().getResource("/library/assistant/ui/main/main.fxml"));
             Stage stage = new Stage(StageStyle.DECORATED);

@@ -33,10 +33,6 @@ import library.assistant.util.LibraryAssistantUtil;
 
 public class MemberListController implements Initializable {
 
-    public static void handleDeleteMember(ActionEvent event) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     ObservableList<MemberListController.Member> list = FXCollections.observableArrayList();
     
     @FXML
