@@ -177,6 +177,11 @@
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="108.0" prefWidth="685.0" snapToPixel="false">
                                        <children>
+                                          <HBox prefHeight="102.0" prefWidth="102.0">
+                                             <HBox.margin>
+                                                <Insets left="100.0" />
+                                             </HBox.margin>
+                                          </HBox>
                                           <JFXButton minHeight="60.0" minWidth="100.0" onAction="#loadIssueOperation" styleClass="setup-button" stylesheets="@main.css" text="Issue">
                                              <graphic>
                                                 <ImageView fitHeight="43.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
@@ -186,6 +191,7 @@
                                                 </ImageView>
                                              </graphic>
                                           </JFXButton>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" />
                                        </children>
                                     </HBox>
                                  </children>

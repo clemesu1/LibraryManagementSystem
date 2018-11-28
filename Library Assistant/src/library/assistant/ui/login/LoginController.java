@@ -98,6 +98,11 @@ public class LoginController implements Initializable {
     private void loadRegisterMember(ActionEvent event) {
         loadWindow("/library/assistant/ui/registermember/register_member.fxml", "Register Member");
     }
+    
+    @FXML
+    private void loadForgotPassword(ActionEvent event) {
+        loadWindow("/library/assistant/ui/forgotpassword/forgot_password.fxml", "Forgot Password");
+    }
     void loadWindow(String loc, String title)
     {
         try {

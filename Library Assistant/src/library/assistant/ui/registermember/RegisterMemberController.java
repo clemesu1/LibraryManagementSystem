@@ -84,23 +84,21 @@ public class RegisterMemberController implements Initializable {
             st.setString(3, mPhone);
             st.setString(4, mEmail);
             exec = st.executeUpdate();
-            
-            
-            
+              
         } catch (SQLException ex) {
             Logger.getLogger(RegisterMemberController.class.getName()).log(Level.SEVERE, null, ex);
         }  
         if(exec > 0) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setHeaderText(null);
-                alert.setContentText("Account Created");
-                alert.showAndWait();
-            } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText(null);
-                alert.setContentText("Error Occured");
-                alert.showAndWait();
-            }
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setContentText("Account Created");
+            alert.showAndWait();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Error Occured");
+            alert.showAndWait();
+        }
     }
 
     @FXML
