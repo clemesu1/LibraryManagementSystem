@@ -16,7 +16,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import library.assistant.database.DatabaseHandler;
-import library.assistant.ui.listaccount.AccountListController;
 
 public class RegisterMemberController implements Initializable {
 
@@ -108,13 +107,6 @@ public class RegisterMemberController implements Initializable {
     private void cancel(ActionEvent event) {
         Stage stage = (Stage) name.getScene().getWindow();
         stage.close();
-    }
-
-    public void inflateUI(AccountListController.Account account) {
-        username.setText(account.getUser());
-        id.setText(account.getId());
-
-        isInEditMode = Boolean.TRUE;
     }
     
 }

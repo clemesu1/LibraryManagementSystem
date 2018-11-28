@@ -62,7 +62,6 @@ public class SettingsController implements Initializable {
         password.setText(String.valueOf(preferences.getPassword()));
     }
 
-    @FXML
     private void loadAccountTable(ActionEvent event) {
         loadWindow("/library/assistant/ui/listaccount/account_list.fxml", "Account List");
     }
