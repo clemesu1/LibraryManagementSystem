@@ -30,6 +30,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import library.assistant.database.DatabaseHandler;
+import library.assistant.util.LibraryAssistantUtil;
 
 public class MainController implements Initializable {
 
@@ -105,6 +106,8 @@ public class MainController implements Initializable {
             stage.setTitle(title);
             stage.setScene(new Scene(parent));
             stage.show();
+            LibraryAssistantUtil.setStageIcon(stage);
+
             
         } catch (IOException ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);

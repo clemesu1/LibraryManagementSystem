@@ -13,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import library.assistant.database.DatabaseHandler;
 import library.assistant.ui.listaccount.AccountListController;
@@ -39,6 +40,8 @@ public class RegisterMemberController implements Initializable {
     private JFXButton cancelButton;
     
     private Boolean isInEditMode = Boolean.FALSE;
+    @FXML
+    private AnchorPane rootPane;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -97,6 +100,8 @@ public class RegisterMemberController implements Initializable {
             alert.setContentText("Error Occured");
             alert.showAndWait();
         }
+        Stage stage = (Stage) rootPane.getScene().getWindow();
+        stage.close();
     }
 
     @FXML

@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import library.assistant.database.DatabaseHandler;
 
@@ -27,6 +28,8 @@ public class ForgotPasswordController implements Initializable {
     private JFXTextField email;
     @FXML
     private JFXTextField username;
+    @FXML
+    private AnchorPane rootPane;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -61,6 +64,8 @@ public class ForgotPasswordController implements Initializable {
                 alert.setHeaderText(null);
                 alert.setContentText("Your password is: " + pass);
                 alert.showAndWait();
+                Stage stage = (Stage) rootPane.getScene().getWindow();
+                stage.close();
             }
             else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -68,6 +73,7 @@ public class ForgotPasswordController implements Initializable {
                 alert.setContentText("User does not exist.");
                 alert.showAndWait();
             }
+            
         } catch (SQLException ex) {
             Logger.getLogger(ForgotPasswordController.class.getName()).log(Level.SEVERE, null, ex);
         }

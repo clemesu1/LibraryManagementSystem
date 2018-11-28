@@ -7,7 +7,7 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
+import java.util.logging.Level; 
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -62,11 +62,6 @@ public class LoginController implements Initializable {
         }
     }
 
-    @FXML
-    private void handleCancelButtonAction(ActionEvent event) {
-        System.exit(0);
-    }
-
     private void closeStage() {
         ((Stage)username.getScene().getWindow()).close();
     }
@@ -82,6 +77,11 @@ public class LoginController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    @FXML
+    private void handleCancelButtonAction(ActionEvent event) {
+        System.exit(0);
     }
     
     @FXML

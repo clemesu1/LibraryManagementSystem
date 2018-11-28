@@ -89,6 +89,8 @@ public class BookAddController implements Initializable {
             alert.setContentText("Failed");
             alert.showAndWait();
         }
+        Stage stage = (Stage) rootPane.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
