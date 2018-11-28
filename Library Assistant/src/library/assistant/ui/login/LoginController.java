@@ -100,7 +100,7 @@ public class LoginController implements Initializable {
     
     @FXML
     private void loadForgotPassword(ActionEvent event) {
-        loadWindow("/library/assistant//forgotpassword/forgot_password.fxml", "Forgot Password");
+        loadWindow("/library/assistant/ui/forgotpassword/forgot_password.fxml", "Forgot Password");
     }
     void loadMain()
     {
