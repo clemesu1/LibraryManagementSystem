@@ -82,6 +82,8 @@ public class BookAddController implements Initializable {
             alert.setHeaderText(null);
             alert.setContentText("Success");
             alert.showAndWait();
+            Stage stage = (Stage) rootPane.getScene().getWindow();
+            stage.close();
         } else //Error
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -89,8 +91,7 @@ public class BookAddController implements Initializable {
             alert.setContentText("Failed");
             alert.showAndWait();
         }
-        Stage stage = (Stage) rootPane.getScene().getWindow();
-        stage.close();
+        
     }
 
     @FXML

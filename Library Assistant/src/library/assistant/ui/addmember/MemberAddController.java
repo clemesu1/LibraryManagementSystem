@@ -81,14 +81,14 @@ public class MemberAddController implements Initializable {
             alert.setHeaderText(null);
             alert.setContentText("Saved");
             alert.showAndWait();
+            Stage stage = (Stage) rootPane.getScene().getWindow();
+            stage.close();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Error Occured");
             alert.showAndWait();
         }
-        Stage stage = (Stage) rootPane.getScene().getWindow();
-        stage.close();
     }
     
     public void inflateUI(MemberListController.Member member) {

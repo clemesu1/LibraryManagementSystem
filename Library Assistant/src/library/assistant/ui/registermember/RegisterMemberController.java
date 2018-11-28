@@ -94,14 +94,14 @@ public class RegisterMemberController implements Initializable {
             alert.setHeaderText(null);
             alert.setContentText("Account Created");
             alert.showAndWait();
+            Stage stage = (Stage) rootPane.getScene().getWindow();
+            stage.close();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Error Occured");
             alert.showAndWait();
-        }
-        Stage stage = (Stage) rootPane.getScene().getWindow();
-        stage.close();
+        }        
     }
 
     @FXML
