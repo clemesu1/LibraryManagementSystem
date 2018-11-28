@@ -48,7 +48,7 @@ public class ForgotPasswordController implements Initializable {
             return;
         }
         boolean flag = false;
-        String qu = "SELECT password FROM ACCOUNT WHERE username  = '" + uUser + "'";
+        String qu = "SELECT password FROM ACCOUNT WHERE username LIKE '" + uUser + "'";
         String pass = "";
         ResultSet rs = handler.execQuery(qu);
         

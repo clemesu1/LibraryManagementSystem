@@ -27,7 +27,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 public class LoginController implements Initializable {
     DatabaseHandler handler;
     @FXML
-    private static JFXTextField username;
+    private JFXTextField username;
     @FXML
     private JFXPasswordField password;
     
@@ -50,16 +50,16 @@ public class LoginController implements Initializable {
         String user = username.getText();
         String pass = DigestUtils.shaHex(password.getText());
             while(rs.next()) {
-                String username = rs.getString("username");
-                String password = rs.getString("password");
-                if(user.equals(username) && pass.equals(DigestUtils.shaHex(password))) {
+                String checkUser = rs.getString("username");
+                String checkPass = rs.getString("password");
+                if(user.equals(checkUser) && pass.equals(DigestUtils.shaHex(checkPass))) {
                     closeStage();
                     loadMain();
                 } else {
                     titleLabel.setText("Invalid Credentials");
                     titleLabel.setStyle("-fx-background-color:d32f2f;-fx-text-fill:white");
                 }     
-                
+               
             }
         
         /*if(user.equals(preference.getUsername()) && pass.equals(preference.getPassword())) {
