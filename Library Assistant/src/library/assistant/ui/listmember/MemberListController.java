@@ -35,6 +35,10 @@ import library.assistant.util.LibraryAssistantUtil;
 
 public class MemberListController implements Initializable {
 
+    public static void handleDeleteMember(ActionEvent event) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     ObservableList<MemberListController.Member> list = FXCollections.observableArrayList();
     
     @FXML
@@ -134,7 +138,7 @@ public class MemberListController implements Initializable {
         }
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Deleting member");
-        alert.setContentText("Are you sure you want to delete the book " + selectedForDeletion.getName() + "?");
+        alert.setContentText("Are you sure you want to delete the member " + selectedForDeletion.getName() + "?");
         Optional<ButtonType> answer = alert.showAndWait();
         if(answer.get() == ButtonType.OK) {
             boolean result = DatabaseHandler.getInstance().deleteMember(selectedForDeletion);

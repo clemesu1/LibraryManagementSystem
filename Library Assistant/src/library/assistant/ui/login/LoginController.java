@@ -27,7 +27,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 public class LoginController implements Initializable {
     DatabaseHandler handler;
     @FXML
-    private JFXTextField username;
+    private static JFXTextField username;
     @FXML
     private JFXPasswordField password;
     
@@ -56,7 +56,6 @@ public class LoginController implements Initializable {
                     closeStage();
                     loadMain();
                 } else {
-                    System.out.println(username + " " + password);
                     titleLabel.setText("Invalid Credentials");
                     titleLabel.setStyle("-fx-background-color:d32f2f;-fx-text-fill:white");
                 }     

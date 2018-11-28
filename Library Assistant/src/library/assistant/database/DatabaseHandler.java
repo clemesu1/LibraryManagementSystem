@@ -11,6 +11,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import library.assistant.ui.listaccount.AccountListController;
 import library.assistant.ui.listbook.BookListController.Book;
 import library.assistant.ui.listmember.MemberListController;
 
@@ -253,6 +254,20 @@ public final class DatabaseHandler {
         }
         return false;
     }
+    public boolean deleteAccount(AccountListController.Account account) {
+        try {
+            String deleteStatement = "DELETE FROM ACCOUNT WHERE id = ?";
+            PreparedStatement stmt = conn.prepareStatement(deleteStatement);
+            stmt.setString(1, account.getId());
+            int res = stmt.executeUpdate();
+            if(res == 1) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
     public boolean updateMember(MemberListController.Member member) {
         try {
             String update = "UPDATE MEMBER SET NAME = ?, EMAIL = ?, PHONE = ? WHERE ID = ?";
@@ -261,6 +276,19 @@ public final class DatabaseHandler {
             stmt.setString(2, member.getEmail());
             stmt.setString(3, member.getPhone());
             stmt.setString(4, member.getId());
+            int res = stmt.executeUpdate();
+            return (res>0);
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    public boolean updateAccount(AccountListController.Account account) {
+        try {
+            String update = "UPDATE BOOK SET USERNAME = ? WHERE ID = ?";
+            PreparedStatement stmt = conn.prepareStatement(update);
+            stmt.setString(1, account.getUser());
+            stmt.setString(4, account.getId());
             int res = stmt.executeUpdate();
             return (res>0);
         } catch (SQLException ex) {

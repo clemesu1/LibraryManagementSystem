@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -18,6 +19,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -85,7 +88,7 @@ public class AccountListController implements Initializable {
             return;
         }
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/library/assistant/ui/addmember/member_add.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/library/assistant/ui/registermember/register_member.fxml"));
             Parent parent = loader.load();
             
             RegisterMemberController controller = (RegisterMemberController) loader.getController();
@@ -108,7 +111,32 @@ public class AccountListController implements Initializable {
 
     @FXML
     private void handleAccountDelete(ActionEvent event) {
+        //Fetch the selected row
+        AccountListController.Account selectedForDeletion = tableView.getSelectionModel().getSelectedItem();
+        if(selectedForDeletion == null) {
+            AlertMaker.showErrorMessage("No account selected", "Please select an account for deletion.");
+            return;
+        }
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Deleting account");
+        alert.setContentText("Are you sure you want to delete the account " + selectedForDeletion.getUser() + "?");
+        Optional<ButtonType> answer = alert.showAndWait();
+        if(answer.get() == ButtonType.OK) {
+            boolean result = DatabaseHandler.getInstance().deleteAccount(selectedForDeletion);
+            if(result) {
+                AlertMaker.showSimpleAlert("Account deleted", selectedForDeletion.getUser() + " was deleted successfully.");
+                list.remove(selectedForDeletion);
+            }
+            else {
+                AlertMaker.showSimpleAlert("Failed", selectedForDeletion.getUser() + " could not be deleted");
+            }
+        }
+        else {
+            AlertMaker.showSimpleAlert("Deletion cancelled", "Deletion process cancelled");
+        }
     }
+    
     public static class Account {
         private final SimpleStringProperty user;
         private final SimpleStringProperty id;
