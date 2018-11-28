@@ -1,15 +1,8 @@
 ----------------------------------------------------------------
-<<<<<<< HEAD
-Wed Nov 28 12:24:39 AST 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0167-5b22-fdc8-00000d383000 
+Wed Nov 28 14:21:29 AST 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0167-5b8d-f426-00000d382fd0 
 on database directory C:\Users\coliw\OneDrive\Documents\GitHub\LibraryManagementSystem\Library Assistant\database with class loader sun.misc.Launcher$AppClassLoader@55f96302 
-Loaded from file:/C:/Users/coliw/OneDrive/Documents/GitHub/LibraryManagementSystem/Library%20Assistant/dist/run1595461618/lib/derby.jar
-=======
-Wed Nov 28 11:27:28 AST 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0167-5aee-a325-00000d3831c0 
-on database directory C:\Users\coliw\OneDrive\Documents\GitHub\LibraryManagementSystem\Library Assistant\database with class loader sun.misc.Launcher$AppClassLoader@55f96302 
-Loaded from file:/C:/Users/coliw/OneDrive/Documents/GitHub/LibraryManagementSystem/Library%20Assistant/dist/run1017335012/lib/derby.jar
->>>>>>> parent of f608452... fixed one part
+Loaded from file:/C:/Users/coliw/OneDrive/Documents/GitHub/LibraryManagementSystem/Library%20Assistant/dist/run1537001406/lib/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_191-b12
 user.dir=C:\Users\coliw\OneDrive\Documents\GitHub\LibraryManagementSystem\Library Assistant

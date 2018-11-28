@@ -1,4 +1,4 @@
-package library.assistant.login;
+package library.assistant.ui.login;
 
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -99,7 +99,7 @@ public class LoginController implements Initializable {
     }
     
     @FXML
-    private void loadForgotPassword(ActionEvent event) {
+    private void loadForgotPassword(ActionEvent event) {        
         loadWindow("/library/assistant/ui/forgotpassword/forgot_password.fxml", "Forgot Password");
     }
     void loadMain()
