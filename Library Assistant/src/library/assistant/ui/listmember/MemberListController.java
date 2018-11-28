@@ -31,8 +31,6 @@ import library.assistant.ui.addmember.MemberAddController;
 import library.assistant.ui.main.MainController;
 import library.assistant.util.LibraryAssistantUtil;
 
-
-
 public class MemberListController implements Initializable {
 
     public static void handleDeleteMember(ActionEvent event) {
@@ -184,6 +182,5 @@ public class MemberListController implements Initializable {
         public String getEmail() {
             return email.get();
         }
-        
     }
 }

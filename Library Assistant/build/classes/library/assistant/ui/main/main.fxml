@@ -20,7 +20,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="844.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="library.assistant.ui.main.MainController">
+<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="842.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="library.assistant.ui.main.MainController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0">
          <top>
@@ -53,9 +53,9 @@
             </MenuBar>
          </top>
          <right>
-            <VBox prefHeight="467.0" prefWidth="159.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="518.0" prefWidth="158.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" onAction="#loadAddMember" prefHeight="150.0" prefWidth="159.0" text="Add Member">
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#loadAddMember" prefHeight="150.0" prefWidth="187.0" text="Add Member">
                      <graphic>
                         <ImageView fitHeight="58.0" fitWidth="112.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -64,7 +64,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#loadAddBook" prefHeight="150.0" prefWidth="159.0" text="Add Book">
+                  <Button contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#loadAddBook" prefHeight="150.0" prefWidth="190.0" text="Add Book">
                      <graphic>
                         <ImageView fitHeight="58.0" fitWidth="112.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -73,7 +73,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="10.0" layoutY="85.0" mnemonicParsing="false" onAction="#loadMemberTable" prefHeight="150.0" prefWidth="159.0" text="View Members">
+                  <Button contentDisplay="TOP" layoutX="10.0" layoutY="85.0" mnemonicParsing="false" onAction="#loadMemberTable" prefHeight="150.0" prefWidth="186.0" text="View Members">
                      <graphic>
                         <ImageView fitHeight="58.0" fitWidth="112.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -82,7 +82,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="10.0" layoutY="160.0" mnemonicParsing="false" onAction="#loadBookTable" prefHeight="150.0" prefWidth="159.0" text="View Books">
+                  <Button contentDisplay="TOP" layoutX="10.0" layoutY="160.0" mnemonicParsing="false" onAction="#loadBookTable" prefHeight="150.0" prefWidth="191.0" text="View Books">
                      <graphic>
                         <ImageView fitHeight="58.0" fitWidth="112.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -91,7 +91,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="10.0" layoutY="235.0" mnemonicParsing="false" onAction="#loadSettings" prefHeight="150.0" prefWidth="159.0" text="Settings">
+                  <Button contentDisplay="TOP" layoutX="10.0" layoutY="235.0" mnemonicParsing="false" onAction="#loadSettings" prefHeight="150.0" prefWidth="186.0" text="Settings">
                      <graphic>
                         <ImageView fitHeight="58.0" fitWidth="112.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -104,7 +104,7 @@
             </VBox>
          </right>
          <center>
-            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+            <TabPane prefHeight="518.0" prefWidth="620.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
               <tabs>
                 <Tab text="Book Issue">
                   <content>
@@ -182,7 +182,7 @@
                                                 <Insets left="100.0" />
                                              </HBox.margin>
                                           </HBox>
-                                          <JFXButton minHeight="60.0" minWidth="100.0" onAction="#loadIssueOperation" styleClass="setup-button" stylesheets="@main.css" text="Issue">
+                                          <JFXButton minHeight="60.0" minWidth="100.0" onAction="#loadIssueOperation" styleClass="setup-button" stylesheets="@main.css" text="Issue Book">
                                              <graphic>
                                                 <ImageView fitHeight="43.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>

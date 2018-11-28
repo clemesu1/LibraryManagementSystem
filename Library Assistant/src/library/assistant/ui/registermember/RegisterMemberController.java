@@ -16,7 +16,6 @@ import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import library.assistant.database.DatabaseHandler;
 import library.assistant.ui.listaccount.AccountListController;
-import library.assistant.util.LibraryAssistantUtil;
 
 public class RegisterMemberController implements Initializable {
 
@@ -41,11 +40,9 @@ public class RegisterMemberController implements Initializable {
     
     private Boolean isInEditMode = Boolean.FALSE;
 
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         handler = DatabaseHandler.getInstance();
-        
     }    
 
     @FXML

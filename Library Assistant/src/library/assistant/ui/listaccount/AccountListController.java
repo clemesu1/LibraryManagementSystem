@@ -1,12 +1,10 @@
 package library.assistant.ui.listaccount;
 
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
-
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,12 +26,9 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import library.assistant.alert.AlertMaker;
 import library.assistant.database.DatabaseHandler;
-import library.assistant.ui.addmember.MemberAddController;
-import library.assistant.ui.listmember.MemberListController;
 import library.assistant.ui.main.MainController;
 import library.assistant.ui.registermember.RegisterMemberController;
 import library.assistant.util.LibraryAssistantUtil;
-
 
 public class AccountListController implements Initializable {
     ObservableList<AccountListController.Account> list = FXCollections.observableArrayList();
@@ -70,7 +65,6 @@ public class AccountListController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(RegisterMemberController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
         tableView.setItems(list);       
     }
 

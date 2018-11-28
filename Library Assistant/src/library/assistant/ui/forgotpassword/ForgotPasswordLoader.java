@@ -1,4 +1,5 @@
-package library.assistant.ui.main;
+
+package library.assistant.ui.forgotpassword;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -6,27 +7,23 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import library.assistant.database.DatabaseHandler;
 import library.assistant.util.LibraryAssistantUtil;
 
-public class Main extends Application {
+public class ForgotPasswordLoader extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/library/assistant/ui/login/login.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Library Assistant Login");
-        stage.show();
-
-        LibraryAssistantUtil.setStageIcon(stage);
+        Parent root = FXMLLoader.load(getClass().getResource("/forgot_password.fxml")); 
         
-        new Thread(() -> {
-            DatabaseHandler.getInstance();
-        }).start();  
+        Scene scene = new Scene(root);
+        
+        stage.setScene(scene);
+        stage.show();
+        LibraryAssistantUtil.setStageIcon(stage);
     }
 
     public static void main(String[] args) {
         launch(args);
     }
+    
 }

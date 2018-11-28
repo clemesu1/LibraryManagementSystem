@@ -14,7 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import library.assistant.database.DatabaseHandler;
-import library.assistant.util.LibraryAssistantUtil;
 
 public class ForgotPasswordController implements Initializable {
 

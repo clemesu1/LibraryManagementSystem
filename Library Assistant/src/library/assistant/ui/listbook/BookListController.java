@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package library.assistant.ui.listbook;
 
 import java.io.IOException;
@@ -36,7 +31,6 @@ import library.assistant.database.DatabaseHandler;
 import library.assistant.ui.addbook.BookAddController;
 import library.assistant.ui.main.MainController;
 import library.assistant.util.LibraryAssistantUtil;
-
 
 public class BookListController implements Initializable {
 
@@ -121,7 +115,6 @@ public class BookListController implements Initializable {
         else {
             AlertMaker.showSimpleAlert("Deletion cancelled", "Deletion process cancelled");
         }
-        
     }
 
     @FXML
@@ -194,7 +187,5 @@ public class BookListController implements Initializable {
         public Boolean getAvailability() {
             return availability.get();
         }
-        
     }
-    
 }

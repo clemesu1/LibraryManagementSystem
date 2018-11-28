@@ -49,27 +49,18 @@ public class LoginController implements Initializable {
         ResultSet rs = handler.execQuery(st);
         String user = username.getText();
         String pass = DigestUtils.shaHex(password.getText());
-            while(rs.next()) {
-                String checkUser = rs.getString("username");
-                String checkPass = rs.getString("password");
-                if(user.equals(checkUser) && pass.equals(DigestUtils.shaHex(checkPass))) {
-                    closeStage();
-                    loadMain();
-                } else {
-                    titleLabel.setText("Invalid Credentials");
-                    titleLabel.setStyle("-fx-background-color:d32f2f;-fx-text-fill:white");
-                }     
-               
-            }
-        
-        /*if(user.equals(preference.getUsername()) && pass.equals(preference.getPassword())) {
-            closeStage();
-            loadMain();
-        } else {
-            titleLabel.setText("Invalid Credentials");
-            titleLabel.setStyle("-fx-background-color:d32f2f;-fx-text-fill:white");
-        }*/ 
-   }
+        while(rs.next()) {
+            String checkUser = rs.getString("username");
+            String checkPass = rs.getString("password");
+            if(user.equals(checkUser) && pass.equals(DigestUtils.shaHex(checkPass))) {
+                closeStage();
+                loadMain();
+            } else {
+                titleLabel.setText("Invalid Credentials");
+                titleLabel.setStyle("-fx-background-color:d32f2f;-fx-text-fill:white");
+            }     
+        }
+    }
 
     @FXML
     private void handleCancelButtonAction(ActionEvent event) {

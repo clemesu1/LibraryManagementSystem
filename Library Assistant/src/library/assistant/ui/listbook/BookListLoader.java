@@ -14,7 +14,6 @@ public class BookListLoader extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("book_list.fxml"));
         Scene scene = new Scene(root);
-        
         stage.setScene(scene);
         stage.show();
         LibraryAssistantUtil.setStageIcon(stage);
@@ -24,5 +23,4 @@ public class BookListLoader extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
 }

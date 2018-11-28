@@ -70,7 +70,6 @@ public class MainController implements Initializable {
         JFXDepthManager.setDepth(member_info, 1);
         
         databaseHandler = DatabaseHandler.getInstance();
-        
     }   
 
     @FXML
@@ -117,6 +116,7 @@ public class MainController implements Initializable {
         bookAuthor.setText("");
         bookStatus.setText("");
     }
+    
     @FXML
     private void loadBookInfo(ActionEvent event) {
         clearBookCache();
@@ -148,7 +148,6 @@ public class MainController implements Initializable {
         }
     }
 
-    
     void clearMemberCache() {
         memberName.setText("");
         memberEmail.setText("");

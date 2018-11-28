@@ -20,7 +20,6 @@ public class AccountListLoader extends Application {
         stage.setScene(scene);
         stage.show();
         LibraryAssistantUtil.setStageIcon(stage);
-
     }
 
     public static void main(String[] args) {
