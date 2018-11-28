@@ -44,7 +44,6 @@ public class RegisterMemberController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        LibraryAssistantUtil.setStageIcon(stage);
         handler = DatabaseHandler.getInstance();
         
     }    
