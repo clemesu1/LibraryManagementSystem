@@ -227,7 +227,7 @@ public class MainController implements Initializable {
     }
     
     @FXML
-    private void loadBookInfo2(ActionEvent event) {
+    public void loadBookInfo2(ActionEvent event) {
         ObservableList<String> issueData = FXCollections.observableArrayList();
         isReadyForReturn = false;
 

@@ -4,7 +4,6 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
-import java.sql.PreparedStatement;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -60,43 +59,41 @@ public class MemberAddController implements Initializable {
 
     @FXML
     private void addMember(ActionEvent event) {
+
+        String mUser = username.getText();
+        String mPass = password.getText();
+        String mName = name.getText();
+        String mID = id.getText();
+        String mPhone = phone.getText();
+        String mEmail = email.getText();
+            
+        Boolean flag = mUser.isEmpty() || mPass.isEmpty() || mName.isEmpty() || mID.isEmpty() || mPhone.isEmpty() || mEmail.isEmpty();
+        if(flag) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter in all fields");
+            alert.showAndWait();
+            return;
+        }
+            
+        if(isInEditMode) {
+            handleUpdateMember();
+            return;
+        }
+
         try {
-            String mUser = username.getText();
-            String mPass = password.getText();
-            String mName = name.getText();
-            String mID = id.getText();
-            String mPhone = phone.getText();
-            String mEmail = email.getText();
-            
-            Boolean flag = mUser.isEmpty() || mPass.isEmpty() || mName.isEmpty() || mID.isEmpty() || mPhone.isEmpty() || mEmail.isEmpty();
-            if(flag) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText(null);
-                alert.setContentText("Please enter in all fields");
-                alert.showAndWait();
-                return;
-            }
-            
-            if(isInEditMode) {
-                handleUpdateMember();
-                return;
-            }
-            
-            String sql = "INSERT INTO MEMBER (ID, NAME, PHONE, USERNAME, PASSWORD, ISADMIN) VALUES (?, ?, ?, ?, ?, ?, ?)"; 
-            PreparedStatement st = handler.getConnection().prepareStatement(sql);
-            
-            st.setString(1, mID);
-            st.setString(2, mName);
-            st.setString(3, mPhone);
-            st.setString(4, mEmail);
-            st.setString(5, mUser);
-            st.setString(6, mPass);
-            if(adminBox.isSelected())
-                st.setBoolean(7, true);
-            else
-                st.setBoolean(7, false);
-            System.out.println(sql);
-            if(handler.execAction(sql)) {
+        String qu = "INSERT INTO MEMBER VALUES (" +
+                "'" + mID + "'," +
+                "'" + mName + "'," +
+                "'" + mUser+ "'," +
+                "'" + mPass + "'," +
+                "'" + mPhone + "'," +
+                "'" + mEmail + "'," +
+                "" + adminBox.isSelected() + "" +
+                ")";
+          
+            System.out.println(qu);
+            if(handler.execAction(qu)) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
                 alert.setContentText("Saved");

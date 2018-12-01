@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.logging.Level; 
 import java.util.logging.Logger;
@@ -55,11 +54,14 @@ public class LoginController implements Initializable {
             String checkPass = rs.getString("PASSWORD");
             boolean checkIsAdmin = rs.getBoolean("isAdmin");
             if(user.equals(checkUser) && pass.equals(DigestUtils.shaHex(checkPass))) {
-                closeStage();
-                if(checkIsAdmin == true)
+                if(checkIsAdmin == true) {
+                    closeStage();
                     loadMain();
-                else
+                }
+                else {
+                    closeStage();
                     loadMemberMain();
+                }
             }
             else {
                 titleLabel.setText("Invalid Credentials");
