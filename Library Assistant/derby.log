@@ -1,11 +1,11 @@
 ----------------------------------------------------------------
-Sat Dec 01 15:33:18 AST 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0167-6b42-c87c-00000d3a20b8 
-on database directory C:\Users\coliw\OneDrive\Documents\NetBeansProjects\Library Assistant\database with class loader sun.misc.Launcher$AppClassLoader@55f96302 
-Loaded from file:/C:/Users/coliw/OneDrive/Documents/NetBeansProjects/Library%20Assistant/dist/run1112754950/lib/derby.jar
+Sat Dec 01 16:12:36 AST 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0167-6b66-c5dd-00000d382f38 
+on database directory C:\Users\coliw\OneDrive\Documents\GitHub\LibraryManagementSystem\Library Assistant\database with class loader sun.misc.Launcher$AppClassLoader@55f96302 
+Loaded from file:/C:/Users/coliw/OneDrive/Documents/GitHub/LibraryManagementSystem/Library%20Assistant/dist/run1959345927/lib/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_191-b12
-user.dir=C:\Users\coliw\OneDrive\Documents\NetBeansProjects\Library Assistant
+user.dir=C:\Users\coliw\OneDrive\Documents\GitHub\LibraryManagementSystem\Library Assistant
 os.name=Windows 10
 os.arch=amd64
 os.version=10.0

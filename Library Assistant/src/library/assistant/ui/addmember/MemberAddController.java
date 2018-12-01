@@ -82,7 +82,7 @@ public class MemberAddController implements Initializable {
                 return;
             }
             
-            String sql = "INSERT INTO MEMBER (ID, NAME, PHONE, PASSWORD, USERNAME, PASSWORD, ISADMIN) VALUES (?, ?, ?, ?, ?, ?, ?)"; 
+            String sql = "INSERT INTO MEMBER (ID, NAME, PHONE, USERNAME, PASSWORD, ISADMIN) VALUES (?, ?, ?, ?, ?, ?, ?)"; 
             PreparedStatement st = handler.getConnection().prepareStatement(sql);
             
             st.setString(1, mID);

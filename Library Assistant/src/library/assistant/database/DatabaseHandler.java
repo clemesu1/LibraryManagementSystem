@@ -219,7 +219,7 @@ public final class DatabaseHandler {
 
     public boolean deleteMember(MemberListController.Member member) {
          try {
-            String deleteStatement = "DELETE FROM MEMBER3 WHERE id = ?";
+            String deleteStatement = "DELETE FROM MEMBER WHERE id = ?";
             PreparedStatement stmt = conn.prepareStatement(deleteStatement);
             stmt.setString(1, member.getId());
             int res = stmt.executeUpdate();
@@ -234,7 +234,7 @@ public final class DatabaseHandler {
     
     public boolean updateMember(MemberListController.Member member) {
         try {
-            String update = "UPDATE MEMBER3 SET NAME = ?, EMAIL = ?, PHONE = ? WHERE ID = ?";
+            String update = "UPDATE MEMBER SET NAME = ?, EMAIL = ?, PHONE = ? WHERE ID = ?";
             PreparedStatement stmt = conn.prepareStatement(update);
             stmt.setString(1, member.getName());
             stmt.setString(2, member.getEmail());

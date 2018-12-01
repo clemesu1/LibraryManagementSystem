@@ -55,17 +55,13 @@ public class LoginController implements Initializable {
             String checkPass = rs.getString("PASSWORD");
             boolean checkIsAdmin = rs.getBoolean("isAdmin");
             if(user.equals(checkUser) && pass.equals(DigestUtils.shaHex(checkPass))) {
-                if(checkIsAdmin == true) {
-                    closeStage();
+                closeStage();
+                if(checkIsAdmin == true)
                     loadMain();
-                    System.out.println("loadmain check:" + checkIsAdmin);
-                }
-                else {
-                    closeStage();
+                else
                     loadMemberMain();
-                    System.out.println("loadMembermain check:" + checkIsAdmin);
-                }
-            } else {
+            }
+            else {
                 titleLabel.setText("Invalid Credentials");
                 titleLabel.setStyle("-fx-background-color:d32f2f;-fx-text-fill:white");
             }     
