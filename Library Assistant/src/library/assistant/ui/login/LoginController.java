@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.logging.Level; 
 import java.util.logging.Logger;
@@ -45,16 +46,25 @@ public class LoginController implements Initializable {
     private void handleLoginButtonAction(ActionEvent event) throws SQLException {
         titleLabel.setText("Library Assistant Login");
         titleLabel.setStyle("-fx-background-color:black;-fx-text-fill:white");
-        String st = "SELECT username, password FROM ACCOUNT";
+        String st = "SELECT username, password, isAdmin FROM MEMBER";
         ResultSet rs = handler.execQuery(st);
         String user = username.getText();
         String pass = DigestUtils.shaHex(password.getText());
         while(rs.next()) {
-            String checkUser = rs.getString("username");
-            String checkPass = rs.getString("password");
+            String checkUser = rs.getString("USERNAME");
+            String checkPass = rs.getString("PASSWORD");
+            boolean checkIsAdmin = rs.getBoolean("isAdmin");
             if(user.equals(checkUser) && pass.equals(DigestUtils.shaHex(checkPass))) {
-                closeStage();
-                loadMain();
+                if(checkIsAdmin == true) {
+                    closeStage();
+                    loadMain();
+                    System.out.println("loadmain check:" + checkIsAdmin);
+                }
+                else {
+                    closeStage();
+                    loadMemberMain();
+                    System.out.println("loadMembermain check:" + checkIsAdmin);
+                }
             } else {
                 titleLabel.setText("Invalid Credentials");
                 titleLabel.setStyle("-fx-background-color:d32f2f;-fx-text-fill:white");
@@ -96,6 +106,18 @@ public class LoginController implements Initializable {
     void loadMain() {
         try {
             Parent parent = FXMLLoader.load(getClass().getResource("/library/assistant/ui/main/main.fxml"));
+            Stage stage = new Stage(StageStyle.DECORATED);
+            stage.setTitle("Library Assistant");
+            stage.setScene(new Scene(parent));
+            stage.show();
+            LibraryAssistantUtil.setStageIcon(stage);
+        } catch (IOException ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    void loadMemberMain() {
+        try {
+            Parent parent = FXMLLoader.load(getClass().getResource("/library/assistant/ui/membermain/member_main.fxml"));
             Stage stage = new Stage(StageStyle.DECORATED);
             stage.setTitle("Library Assistant");
             stage.setScene(new Scene(parent));

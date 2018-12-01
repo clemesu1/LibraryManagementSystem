@@ -50,7 +50,7 @@ public class ForgotPasswordController implements Initializable {
             return;
         }
         boolean flag = false;
-        String qu = "SELECT password FROM ACCOUNT WHERE username LIKE '" + uUser + "'";
+        String qu = "SELECT password FROM MEMBER WHERE username LIKE '" + uUser + "'";
         String pass = "";
         ResultSet rs = handler.execQuery(qu);
         
@@ -73,11 +73,9 @@ public class ForgotPasswordController implements Initializable {
                 alert.setContentText("User does not exist.");
                 alert.showAndWait();
             }
-            
         } catch (SQLException ex) {
             Logger.getLogger(ForgotPasswordController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
 
      @FXML

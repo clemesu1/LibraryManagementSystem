@@ -7,7 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -44,7 +43,6 @@ public final class DatabaseHandler {
         }
         return null;
     }
-    
     void createConnection() {
         try {
             Class.forName("org.apache.derby.jdbc.EmbeddedDriver").newInstance();
@@ -74,7 +72,7 @@ public final class DatabaseHandler {
                         + "     isAvail boolean default true"
                         + " )");      
             }
-        } catch (SQLException e) {
+        } catch (Exception e) {
             System.err.println(e.getMessage() + " ... setupDatabase");
         } finally {
         }
@@ -93,11 +91,14 @@ public final class DatabaseHandler {
                 stmt.execute("CREATE TABLE " + TABLE_NAME + "("
                         + "     id varchar(200) primary key,\n"
                         + "     name varchar(200),\n"
+                        + "     username varchar(200),\n"
+                        + "     password varchar(200),\n"
                         + "     phone varchar(20),\n"
-                        + "     email varchar(100)\n"
+                        + "     email varchar(100),\n"
+                        + "     isAdmin boolean default false\n"
                         + " )");      
             }
-        } catch (SQLException e) {
+        } catch (Exception e) {
             System.err.println(e.getMessage() + " ... setupDatabase");
         } finally {
         }
@@ -122,7 +123,7 @@ public final class DatabaseHandler {
                         + "     FOREIGN KEY (memberID) REFERENCES MEMBER(id)\n"
                         + " )");      
             }
-        } catch (SQLException e) {
+        } catch (Exception e) {
             System.err.println(e.getMessage() + " ... setupDatabase");
         } finally {
         }
@@ -132,7 +133,7 @@ public final class DatabaseHandler {
         try {
             stmt = conn.createStatement();
             result = stmt.executeQuery(query);
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             System.out.println("Exception at execQuery:dataHandler" + ex.getLocalizedMessage());
             return null;
         } finally {
@@ -160,7 +161,7 @@ public final class DatabaseHandler {
             stmt.setString(1, book.getId());
             int res = stmt.executeUpdate();
             
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
@@ -177,7 +178,7 @@ public final class DatabaseHandler {
                 System.out.println(count);
                 return (count>0);
             }
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
@@ -210,7 +211,7 @@ public final class DatabaseHandler {
                 System.out.println(count);
                 return (count>0);
             }
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
@@ -218,14 +219,14 @@ public final class DatabaseHandler {
 
     public boolean deleteMember(MemberListController.Member member) {
          try {
-            String deleteStatement = "DELETE FROM MEMBER WHERE id = ?";
+            String deleteStatement = "DELETE FROM MEMBER3 WHERE id = ?";
             PreparedStatement stmt = conn.prepareStatement(deleteStatement);
             stmt.setString(1, member.getId());
             int res = stmt.executeUpdate();
             if(res == 1) {
                 return true;
             }
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
@@ -233,7 +234,7 @@ public final class DatabaseHandler {
     
     public boolean updateMember(MemberListController.Member member) {
         try {
-            String update = "UPDATE MEMBER SET NAME = ?, EMAIL = ?, PHONE = ? WHERE ID = ?";
+            String update = "UPDATE MEMBER3 SET NAME = ?, EMAIL = ?, PHONE = ? WHERE ID = ?";
             PreparedStatement stmt = conn.prepareStatement(update);
             stmt.setString(1, member.getName());
             stmt.setString(2, member.getEmail());

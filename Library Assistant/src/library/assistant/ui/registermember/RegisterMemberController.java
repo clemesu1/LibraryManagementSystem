@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -49,6 +50,7 @@ public class RegisterMemberController implements Initializable {
 
     @FXML
     private void registerMember(ActionEvent event) {
+        
         String mUser = username.getText();
         String mPass = password.getText();
         String mName = name.getText();
@@ -68,21 +70,14 @@ public class RegisterMemberController implements Initializable {
         }
         PreparedStatement st;
         try {
-            st = DatabaseHandler.getConnection().prepareStatement("INSERT INTO ACCOUNT (ID, USERNAME, PASSWORD) VALUES (?, ?, ?)");
-            st.setString(1, mID);
-            st.setString(2, mUser);
-            st.setString(3, mPass);
-            exec = st.executeUpdate();
-           
-        } catch (SQLException ex) {
-            Logger.getLogger(RegisterMemberController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            st = DatabaseHandler.getConnection().prepareStatement("INSERT INTO MEMBER (ID, NAME, PHONE, EMAIL) VALUES (?, ?, ?, ?)");
+            st = DatabaseHandler.getConnection().prepareStatement("INSERT INTO MEMBER (ID, NAME, PHONE, EMAIL, USERNAME, PASSWORD, ISADMIN) VALUES (?, ?, ?, ?, ?, ?, ?)");
             st.setString(1, mID);
             st.setString(2, mName);
             st.setString(3, mPhone);
             st.setString(4, mEmail);
+            st.setString(5, mUser);
+            st.setString(6, mPass);
+            st.setBoolean(7, false);
             exec = st.executeUpdate();
               
         } catch (SQLException ex) {
