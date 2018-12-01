@@ -1,4 +1,3 @@
-
 package library.assistant.ui.listmember;
 
 import java.io.IOException;
@@ -38,6 +37,8 @@ public class MemberListController implements Initializable {
     @FXML
     private TableView<Member> tableView;
     @FXML
+    private TableColumn<Member, String> userCol;
+    @FXML
     private TableColumn<Member, String> nameCol;
     @FXML
     private TableColumn<Member, String> idCol;
@@ -45,8 +46,7 @@ public class MemberListController implements Initializable {
     private TableColumn<Member, String> phoneCol;
     @FXML
     private TableColumn<Member, String> emailCol;
-
-
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         initCol();
@@ -54,6 +54,7 @@ public class MemberListController implements Initializable {
     }    
     
     private void initCol() {
+        userCol.setCellValueFactory(new PropertyValueFactory<>("username"));
         nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         phoneCol.setCellValueFactory(new PropertyValueFactory<>("phone"));
@@ -68,12 +69,14 @@ public class MemberListController implements Initializable {
         ResultSet rs = handler.execQuery(qu);
         try {
             while(rs.next()) {
+                String user = rs.getString("username");
+                String pass = rs.getString("password");
                 String name = rs.getString("name");
                 String phone = rs.getString("phone");
                 String id = rs.getString("id");
                 String email = rs.getString("email");
                 
-                list.add(new Member(name, id, phone, email));
+                list.add(new Member(user, pass, name, id, phone, email));
                 
             }
         } catch (SQLException ex) {
@@ -150,19 +153,30 @@ public class MemberListController implements Initializable {
     }
     
     public static class Member {
-        
+        private final SimpleStringProperty username;
+        private final SimpleStringProperty password;
         private final SimpleStringProperty name;
         private final SimpleStringProperty id;
         private final SimpleStringProperty phone;
         private final SimpleStringProperty email;
         
-        public Member(String name, String id, String phone, String email) {
+        public Member(String user, String pass, String name, String id, String phone, String email) {
+            this.username = new SimpleStringProperty(user);
+            this.password = new SimpleStringProperty(pass);
             this.name = new SimpleStringProperty(name);
             this.id = new SimpleStringProperty(id);
             this.phone = new SimpleStringProperty(phone);
             this.email = new SimpleStringProperty(email);
         }
-
+        
+        public String getUser() {
+            return username.get();
+        }
+        
+        public String getPass() {
+            return password.get();
+        }
+        
         public String getName() {
             return name.get();
         }

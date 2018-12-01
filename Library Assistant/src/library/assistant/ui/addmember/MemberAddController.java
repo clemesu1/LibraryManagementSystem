@@ -112,6 +112,8 @@ public class MemberAddController implements Initializable {
     }
     
     public void inflateUI(MemberListController.Member member) {
+        username.setText(member.getUser());
+        password.setText(member.getPass());
         name.setText(member.getName());
         id.setText(member.getId());
         id.setEditable(false);
@@ -122,7 +124,7 @@ public class MemberAddController implements Initializable {
     }
     
     private void handleUpdateMember() {
-        Member member = new MemberListController.Member(name.getText(), id.getText(), phone.getText(), email.getText());
+        Member member = new MemberListController.Member(username.getText(), password.getText(), name.getText(), id.getText(), phone.getText(), email.getText());
         if(DatabaseHandler.getInstance().updateMember(member)) {
             AlertMaker.showSimpleAlert("Success", "Member Updated");
         }

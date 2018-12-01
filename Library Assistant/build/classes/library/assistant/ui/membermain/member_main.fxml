@@ -120,14 +120,14 @@
                            <children>
                               <BorderPane prefHeight="431.2" prefWidth="684.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <top>
-                                    <JFXTextField fx:id="bookIDInput" focusColor="#a94059" labelFloat="true" onAction="#loadMemberBookInfo" prefHeight="25.0" prefWidth="441.0" promptText="Enter Book ID" BorderPane.alignment="CENTER">
+                                    <JFXTextField fx:id="bookIDInput" alignment="BOTTOM_LEFT" focusColor="#a94059" labelFloat="true" onAction="#loadMemberBookInfo" prefHeight="0.0" prefWidth="384.0" promptText="Enter Book ID" BorderPane.alignment="CENTER">
                                        <BorderPane.margin>
                                           <Insets left="150.0" right="150.0" top="10.0" />
                                        </BorderPane.margin>
                                     </JFXTextField>
                                  </top>
                                  <center>
-                                    <ListView fx:id="issueDataList" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                    <ListView fx:id="issueDataList" prefHeight="316.0" prefWidth="663.0" BorderPane.alignment="CENTER">
                                        <padding>
                                           <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                        </padding>

@@ -182,15 +182,6 @@ public class MemberMainController implements Initializable {
                     issueData.add("\tBook Author : " + r1.getString("author"));
                     issueData.add("\tBook Publisher : " + r1.getString("publisher"));
                 }
-                issueData.add("Member Information:-");
-                qu = "SELECT * FROM MEMBER WHERE ID = '" + mMemberID + "'";
-                r1 = databaseHandler.execQuery(qu);
-                
-                while(r1.next()) {
-                    issueData.add("\tName : " + r1.getString("name"));
-                    issueData.add("\tPhone : " + r1.getString("phone"));
-                    issueData.add("\tEmail : " + r1.getString("email"));
-                }
                 
                 isReadyForReturn = true;
             }
