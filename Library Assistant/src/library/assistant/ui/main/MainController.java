@@ -62,8 +62,6 @@ public class MainController implements Initializable {
     Boolean isReadyForReturn = false;
     @FXML
     private StackPane rootPane;
-    @FXML
-    private Label welcomeUser;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

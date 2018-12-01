@@ -21,6 +21,7 @@ import javafx.stage.StageStyle;
 import library.assistant.database.DatabaseHandler;
 import library.assistant.settings.Preferences;
 import library.assistant.ui.main.MainController;
+import library.assistant.ui.membermain.MemberMainController;
 import library.assistant.util.LibraryAssistantUtil;
 import org.apache.commons.codec.digest.DigestUtils;
 
@@ -32,7 +33,7 @@ public class LoginController implements Initializable {
     private JFXPasswordField password;
     @FXML
     private Label titleLabel;
-    
+    public String name = "";
     Preferences preference;
 
     @Override
@@ -45,11 +46,12 @@ public class LoginController implements Initializable {
     private void handleLoginButtonAction(ActionEvent event) throws SQLException {
         titleLabel.setText("Library Assistant Login");
         titleLabel.setStyle("-fx-background-color:black;-fx-text-fill:white");
-        String st = "SELECT username, password, isAdmin FROM MEMBER";
+        String st = "SELECT name, username, password, isAdmin FROM MEMBER";
         ResultSet rs = handler.execQuery(st);
         String user = username.getText();
         String pass = DigestUtils.shaHex(password.getText());
         while(rs.next()) {
+            name = rs.getString("NAME");
             String checkUser = rs.getString("USERNAME");
             String checkPass = rs.getString("PASSWORD");
             boolean checkIsAdmin = rs.getBoolean("isAdmin");
@@ -115,7 +117,10 @@ public class LoginController implements Initializable {
     }
     void loadMemberMain() {
         try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/library/assistant/ui/membermain/member_main.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/library/assistant/ui/membermain/member_main.fxml"));
+            Parent parent = (Parent) loader.load();
+            MemberMainController controller = loader.getController();
+            controller.setWelcomeText(name);
             Stage stage = new Stage(StageStyle.DECORATED);
             stage.setTitle("Library Assistant");
             stage.setScene(new Scene(parent));
