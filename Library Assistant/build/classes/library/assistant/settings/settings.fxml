@@ -12,22 +12,22 @@
    <children>
       <VBox layoutY="7.0" prefHeight="294.0" prefWidth="334.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <JFXTextField fx:id="nDaysWithoutFine" labelFloat="true" promptText="Number of days members can keep book without fine">
+            <JFXTextField fx:id="nDaysWithoutFine" focusColor="#a94059" labelFloat="true" promptText="Number of days members can keep book without fine">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="25.0" />
                </VBox.margin>
             </JFXTextField>
-            <JFXTextField fx:id="finePerDay" labelFloat="true" layoutX="10.0" layoutY="10.0" promptText="Fine per day">
+            <JFXTextField fx:id="finePerDay" focusColor="#a94059" labelFloat="true" layoutX="10.0" layoutY="10.0" promptText="Fine per day">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
             </JFXTextField>
-            <JFXTextField fx:id="username" labelFloat="true" promptText="Username">
+            <JFXTextField fx:id="username" focusColor="#a94059" labelFloat="true" promptText="Username">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
             </JFXTextField>
-            <JFXPasswordField fx:id="password" labelFloat="true" promptText="Password">
+            <JFXPasswordField fx:id="password" focusColor="#a94059" labelFloat="true" promptText="Password">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>

@@ -73,7 +73,6 @@ public final class DatabaseHandler {
                         + " )");      
             }
         } catch (Exception e) {
-            System.err.println(e.getMessage() + " ... setupDatabase");
         } finally {
         }
     }
@@ -99,7 +98,6 @@ public final class DatabaseHandler {
                         + " )");      
             }
         } catch (Exception e) {
-            System.err.println(e.getMessage() + " ... setupDatabase");
         } finally {
         }
     }
@@ -124,7 +122,6 @@ public final class DatabaseHandler {
                         + " )");      
             }
         } catch (Exception e) {
-            System.err.println(e.getMessage() + " ... setupDatabase");
         } finally {
         }
     }
@@ -134,7 +131,6 @@ public final class DatabaseHandler {
             stmt = conn.createStatement();
             result = stmt.executeQuery(query);
         } catch (Exception ex) {
-            System.out.println("Exception at execQuery:dataHandler" + ex.getLocalizedMessage());
             return null;
         } finally {
         }
@@ -146,9 +142,7 @@ public final class DatabaseHandler {
             stmt = conn.createStatement();
             stmt.execute(qu);
             return true;
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error:" + ex.getMessage(), "Error Occured", JOptionPane.ERROR_MESSAGE);
-            System.out.println("Exception at execQuery:dataHandler " + ex.getLocalizedMessage());
+        } catch (Exception ex) {
             return false;
         } finally {
         }
@@ -194,7 +188,7 @@ public final class DatabaseHandler {
             stmt.setString(4, book.getId());
             int res = stmt.executeUpdate();
             return (res>0);
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
@@ -242,7 +236,7 @@ public final class DatabaseHandler {
             stmt.setString(4, member.getId());
             int res = stmt.executeUpdate();
             return (res>0);
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;

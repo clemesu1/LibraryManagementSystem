@@ -184,6 +184,7 @@ public class MainController implements Initializable {
 
     @FXML
     private void loadIssueOperation(ActionEvent event) {
+        try {
         String memberID = memberIDInput.getText();
         String bookID = bookIDInput.getText();
         
@@ -222,6 +223,7 @@ public class MainController implements Initializable {
                 
             alert1.showAndWait();
         }
+        }catch(Exception e) {}
     }
     
     @FXML
